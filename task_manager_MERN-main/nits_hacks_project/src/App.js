@@ -41,6 +41,7 @@ const App = () => {
               <Route path='/register' element={<Register/>}/>
               <Route path='/main' element={<Main userName={userName} todo={todo} setTodo={setTodo}/>}/>
               <Route path='/profile' element={<Profile userName={userName}/>}/>
+              
           </Routes>
       </BrowserRouter>
     </div>
