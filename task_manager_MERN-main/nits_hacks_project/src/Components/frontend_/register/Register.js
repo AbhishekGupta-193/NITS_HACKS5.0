@@ -114,6 +114,29 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="contact"
+                  label="Contact"
+                  type="contact"
+                  id="contact"
+                  autoComplete="new-contact"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="user_type"
+                  label="User Type"
+                  type="user_type"
+                  id="user_type"
+                  autoComplete="new-user_type"
+                  
+                />
+              </Grid>
             </Grid>
             <Button
               type="submit"
