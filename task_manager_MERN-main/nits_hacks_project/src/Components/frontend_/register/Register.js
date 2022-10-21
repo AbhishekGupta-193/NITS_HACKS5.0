@@ -25,6 +25,8 @@ export default function SignUp() {
       last_name:data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
+      contact:data.get('contact'),
+      user_type:data.get('user_type')
     };
 
     const myurl = "http://localhost:5000/register"
@@ -44,8 +46,9 @@ export default function SignUp() {
       if(code==400) {alert("All inputs are required");}
       else if(code==409) alert("user already exists please log in to continue");
       else if(code==201) {
-        localStorage.setItem('token', data.user.user.token)
-        navigate('/login')
+        console.log(data,"dddddddd");
+        // localStorage.setItem('token', data.user.user.token)
+        // navigate('/login')
         }
       else{alert("network error please try again later")}
     })
@@ -110,6 +113,29 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="contact"
+                  label="Contact"
+                  type="contact"
+                  id="contact"
+                  autoComplete="new-contact"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="user_type"
+                  label="User Type"
+                  type="user_type"
+                  id="user_type"
+                  autoComplete="new-user_type"
+                  
                 />
               </Grid>
             </Grid>
