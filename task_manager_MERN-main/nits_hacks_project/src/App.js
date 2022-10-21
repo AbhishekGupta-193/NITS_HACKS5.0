@@ -6,7 +6,7 @@ import { BrowserRouter, Route,Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/App.css'
 import Landing from './Components/frontend_/Landing/Landing'
-import Profile from './Components/frontend_/MainPage/Profile'
+import Profile from './Components/frontend_/main_Page/Profile'
 const App = () => {
 
   const [todo,setTodo] = useState([])
