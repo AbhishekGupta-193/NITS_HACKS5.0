@@ -6,7 +6,6 @@ import { BrowserRouter, Route,Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/App.css'
 import Landing from './Components/frontend_/Landing/Landing'
-import Profile from './Components/frontend_/MainPage/Profile'
 import Tempform from './Components/TempForm'
 const App = () => {
 
@@ -41,7 +40,6 @@ const App = () => {
               <Route path='/register' element={<Register/>}/>
               <Route path='/register' element={<Register/>}/>
               <Route path='/main' element={<Main userName={userName} todo={todo} setTodo={setTodo}/>}/>
-              <Route path='/profile' element={<Profile userName={userName}/>}/>
           </Routes>
       </BrowserRouter>
       {/* <Tempform/> */}
