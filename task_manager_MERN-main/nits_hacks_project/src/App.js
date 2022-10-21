@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/App.css'
 import Landing from './Components/frontend_/Landing/Landing'
 import Profile from './Components/frontend_/MainPage/Profile'
+import Tempform from './Components/TempForm'
 const App = () => {
 
   const [todo,setTodo] = useState([])
@@ -43,6 +44,7 @@ const App = () => {
               <Route path='/profile' element={<Profile userName={userName}/>}/>
           </Routes>
       </BrowserRouter>
+      {/* <Tempform/> */}
     </div>
   )
 }

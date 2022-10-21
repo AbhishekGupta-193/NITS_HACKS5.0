@@ -44,8 +44,9 @@ export default function SignUp() {
       if(code==400) {alert("All inputs are required");}
       else if(code==409) alert("user already exists please log in to continue");
       else if(code==201) {
-        localStorage.setItem('token', data.user.user.token)
-        navigate('/login')
+        console.log(data,"dddddddd");
+        // localStorage.setItem('token', data.user.user.token)
+        // navigate('/login')
         }
       else{alert("network error please try again later")}
     })
