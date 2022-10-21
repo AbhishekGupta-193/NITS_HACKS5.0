@@ -10,7 +10,7 @@ const Main = ({todo,setTodo,userName}) => {
     <div>
       <Navbar userName={userName}/>
       {/* <Cards  todo={todo} setTodo={setTodo}/> */}
-      {/* <User/> */}
+      <User/>
     </div>
   );
 };

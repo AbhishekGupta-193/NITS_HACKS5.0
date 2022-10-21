@@ -12,24 +12,24 @@ const App = () => {
   const [todo,setTodo] = useState([])
   const [userName,setUserName] = useState('');
 
-  useEffect(()=>{
-    const url = `http://localhost:5000/task/${localStorage.getItem('userId')}`;
-    fetch(url, { headers: { 
-      "Access-Control-Allow-Origin": "*" ,
-      "Authorization":`Bearer ${localStorage.getItem('token')}`,
-    },
-  })
-      .then((res) => res.json())
-      .then((data) => { 
-        console.log(data,"get aaa");
-        setTodo(data[0].todoData);
-        setUserName(data[0].user)
-      })
-      .catch((err) => {
-         console.log(err)
-    });
+  // useEffect(()=>{
+  //   const url = `http://localhost:5000/`;
+  //   fetch(url, { headers: { 
+  //     "Access-Control-Allow-Origin": "*" ,
+  //     "Authorization":`Bearer ${localStorage.getItem('token')}`,
+  //   },
+  // })
+  //     .then((res) => res.json())
+  //     .then((data) => { 
+  //       console.log(data,"get aaa");
+  //       setTodo(data[0].todoData);
+  //       setUserName(data[0].user)
+  //     })
+  //     .catch((err) => {
+  //        console.log(err)
+  //   });
 
-  },[])
+  // },[])
 
   return (
     <div>

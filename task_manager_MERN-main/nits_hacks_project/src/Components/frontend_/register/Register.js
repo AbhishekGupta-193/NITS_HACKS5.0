@@ -26,8 +26,9 @@ export default function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
       contact:data.get('contact'),
-      user_type:data.get('user_type')
     };
+
+    console.log("data...",userData);
 
     const myurl = "http://localhost:5000/register"
 
@@ -48,7 +49,7 @@ export default function SignUp() {
       else if(code==201) {
         console.log(data,"dddddddd");
         // localStorage.setItem('token', data.user.user.token)
-        // navigate('/login')
+        navigate('/login')
         }
       else{alert("network error please try again later")}
     })
@@ -124,18 +125,6 @@ export default function SignUp() {
                   type="contact"
                   id="contact"
                   autoComplete="new-contact"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="user_type"
-                  label="User Type"
-                  type="user_type"
-                  id="user_type"
-                  autoComplete="new-user_type"
-                  
                 />
               </Grid>
             </Grid>

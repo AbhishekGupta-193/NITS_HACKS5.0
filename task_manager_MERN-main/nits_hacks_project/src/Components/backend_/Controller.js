@@ -1,15 +1,17 @@
-const {todo_collection} = require("./Mongodb");
+const {user_collection} = require("./Mongodb");
 const TOKEN_KEY = process.env.REACT_APP_TOKEN_KEY;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid')
+
+
 
 const login = async (req,res) => {
      try {
           const {email,password} = req.body;
           if(!(email && password)) {return res.status(400).send({status:400,msg:"please enter username or password"})}
 
-          const userData = await todo_collection.findOne({'user.email':email.toLowerCase()})
+          const userData = await user_collection.findOne({'user.email':email.toLowerCase()})
           console.log("user : ",userData);
           if (userData && userData.user && (await bcrypt.compare(password, userData.user.password))) {
                const token = jwt.sign(
@@ -31,22 +33,21 @@ const login = async (req,res) => {
 const register = async (req,res) => {
      console.log("register");
      try {
-          const {first_name,last_name,email,password} = req.body;
-          if(!(email && password && first_name && last_name)) {return res.status(400).send({status:400,msg:"All inputs are required"});}
+          const {first_name,last_name,email,password,contact} = req.body;
+          if(!(email && password && first_name && last_name && contact)) {return res.status(400).send({status:400,msg:"All inputs are required"});}
 
-          const oldUser = await todo_collection.find({'user.email':email.toLowerCase()});
+          const oldUser = await user_collection.find({'user.email':email.toLowerCase()});
+          console.log(oldUser,"old User")
           if(oldUser.length!=0) {return res.status(400).send({status:409,msg:"User Already exist. Please Log In"})}
           const encryptedPassword = await bcrypt.hash(password,10);
-          const userId = new Date().getTime();
-          const userData = await todo_collection.create({
+          const userData = await user_collection.create({
                user:{
                     first_name,
                     last_name,
                     email:email.toLowerCase(),
                     password:encryptedPassword,
-                    userID:userId
-               },
-               todoData:[]
+                    contact
+               }
           })
           const token = jwt.sign(
                { user_id: userData._id, email },

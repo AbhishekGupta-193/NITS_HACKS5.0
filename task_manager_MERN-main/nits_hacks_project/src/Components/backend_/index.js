@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors');
 require('dotenv').config();
-const {register,login} = require('./Controller.js')
+const {register,login,getUser} = require('./Controller.js')
 const auth = require("./auth");
 const PORT = process.env.REACT_APP_PORT
 
