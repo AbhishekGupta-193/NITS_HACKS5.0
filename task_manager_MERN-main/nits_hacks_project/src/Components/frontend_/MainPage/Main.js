@@ -9,8 +9,8 @@ const Main = ({todo,setTodo,userName}) => {
   return (
     <div>
       <Navbar userName={userName}/>
-      <Cards  todo={todo} setTodo={setTodo}/>
-      <User/>
+      {/* <Cards  todo={todo} setTodo={setTodo}/> */}
+      {/* <User/> */}
     </div>
   );
 };
