@@ -25,6 +25,8 @@ export default function SignUp() {
       last_name:data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
+      contact:data.get('contact'),
+      user_type:data.get('user_type')
     };
 
     const myurl = "http://localhost:5000/register"
