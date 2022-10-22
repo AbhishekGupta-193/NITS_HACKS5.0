@@ -3,13 +3,22 @@ a{
 }
 .LandingWrapper{
      height: 100vh;
-     background-repeat: no-repeat;
-     background-size: 400px;
-     background-position:20%;
+     background: rgb(255,255,255);
+     background: linear-gradient(141deg, rgba(255,255,255,0.7483368347338936) 50%, rgba(45,144,33,1) 50%);
      display: flex;
      justify-content: space-around;
      align-items: center;
+     color: #fff;
 
+}
+.logo{
+     margin: 0.5rem;
+     position: absolute;
+     width: 100px;
+}
+.logo img{
+     border-radius: 10px;
+     width: 80px;
 }
 
 .nitImage{

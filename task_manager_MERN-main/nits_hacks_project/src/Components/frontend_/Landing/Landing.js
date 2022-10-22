@@ -5,11 +5,16 @@ import { Button } from '@mui/material'
 import './Landing.css'
 import { Vission } from './Vission'
 import { Footer } from './Footer'
+import logo from './logo.jpeg'
 const src = "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/National_Institute_Of_Technology_Silchar_Logo.svg/1200px-National_Institute_Of_Technology_Silchar_Logo.svg.png"
+
 const Landing = () => {
      const navigate = useNavigate();
   return (
   <>
+     <div className="logo">
+          <img src={logo}/>
+     </div>
     <div className='LandingWrapper'>
      <div className='nitImage'>
           <img className='nitsImg' src={src} alt="image"/>

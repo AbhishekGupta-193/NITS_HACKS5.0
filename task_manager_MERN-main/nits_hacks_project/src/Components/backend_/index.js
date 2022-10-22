@@ -11,12 +11,15 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/task',UserRouter)
+app.use('/data',UserRouter)
 app.use(express.urlencoded({extended:false}))
 
 
 app.get('/register',(req,res)=>{
      res.status(200).send("registerHTML")
+})
+app.get('/analyse',(req,res)=>{
+     return res.send({status:200,msg:"success"})
 })
 app.get('/users',getUser)
 app.post('/register',register)

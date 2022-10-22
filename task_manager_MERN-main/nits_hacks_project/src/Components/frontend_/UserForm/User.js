@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import "./User.css";
-
 function App() {
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    function notify(info,color){
+      toast( info,{
+        duration:1500,
+        style:{
+          backgroundColor:color
+        }
+      })
+    }
 
     const data = new FormData(e.currentTarget);
     const WasteData = {
@@ -19,7 +28,7 @@ function App() {
 
      console.log(WasteData);
 
-     const url = `http://localhost:5000/task`;
+     const url = `http://localhost:5000/data`;
      fetch(url,{
        method:"POST",
        headers: {
@@ -32,7 +41,7 @@ function App() {
      .then(data=>{
        console.log('data..created',data);
        if(data.status==400) {alert('all inputs are required')}
-       else if(data.status==201)(alert("your data has been posted"))
+       else if(data.status==201)(notify("👏 created","#36b37e"))
      })
      .catch(err=>console.log(err)) 
 
@@ -40,6 +49,9 @@ function App() {
 
   return (
     <div className="userCont">
+       <Toaster toastOptions={{
+          style: {
+          color: '#ffff',},}}/>
       <div className="bg_image">
         <img src="https://images.unsplash.com/photo-1610141160723-d2d346e73766?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHdhc3RlJTIwbWFuYWdlbWVudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
       </div>
@@ -50,11 +62,16 @@ function App() {
             <div className="form-group col-md-6">
               <label > Nature of Waste</label>
               <select name="nature"  className="form-control">
-                <option >Select</option>
-                <option value="Organic">Organic</option>
+                <option disabled>Select</option>
                 <option value="Plastics">Plastics</option>
-                <option value="Stationary">Stationary</option>
-                <option value="Metal">Metal</option>
+                <option value="glass">glass</option>
+                <option value="metal">metal</option>
+                <option value="stationery">stationery</option>
+                <option value="sewage">sewage</option>
+                <option value="E_waste">E-waste</option>
+                <option value="chemical_waste">chemical waste</option>
+                <option value="domestic_waste">domestic waste</option>
+                <option value="construction_waste">construction waste</option>
               </select>
             </div>
             <div className="form-group col-md-6">
@@ -73,10 +90,10 @@ function App() {
             <div className="form-group col-md-6">
               <label> How old is it ? </label>
               <select name="old"  className="form-control">
-                <option >Select</option>
+                <option disabled>Select</option>
                 <option value="week">Less then a week</option>
                 <option value="month">Less then a month</option>
-                <option value="more">Very old</option>
+                <option value="more">more than a 2-3 months</option>
               </select>
             </div>
           

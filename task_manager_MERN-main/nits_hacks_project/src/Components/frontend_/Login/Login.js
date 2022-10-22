@@ -42,10 +42,9 @@ export default function SignIn() {
       if(code==400) alert("All inputs are required");
       else if(code==401) alert("Invalid Credientials");
       else if(code==200) {
-      const userId = data.user.user.userID
-      localStorage.setItem('userId',userId)
+      // const userId = data.user.user.userID
+      // localStorage.setItem('userId',userId)
       navigate('/main')
-      window.location.reload()
       }
       else{alert("network error please try again later")}
     })
