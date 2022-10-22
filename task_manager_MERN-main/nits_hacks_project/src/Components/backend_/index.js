@@ -18,6 +18,7 @@ app.use(express.urlencoded({extended:false}))
 app.get('/register',(req,res)=>{
      res.status(200).send("registerHTML")
 })
+app.get('/users',getUser)
 app.post('/register',register)
 app.post('/login',login)
 

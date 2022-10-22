@@ -12,7 +12,7 @@ const Landing = () => {
   <>
     <div className='LandingWrapper'>
      <div className='nitImage'>
-          <img src={src} alt="image"/>
+          <img className='nitsImg' src={src} alt="image"/>
      </div>
      <div className="landingInfo">
           <h1>Welcome to</h1>

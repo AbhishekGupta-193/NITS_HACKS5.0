@@ -10,7 +10,7 @@ const Navbar = ({userName}) => {
           </a>
                <div className="navbar-brand ms-3 text-white">
                     <Link className='profileicon' to='/profile'>
-                         {userName.first_name} <FaUserCircle/>
+                        
                     </Link>
                </div>
       </nav>

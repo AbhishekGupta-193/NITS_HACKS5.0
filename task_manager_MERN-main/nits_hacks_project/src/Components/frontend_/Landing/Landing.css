@@ -71,7 +71,7 @@ p{
      .LandingWrapper{
           flex-direction: column;
      }
-     .nitImage  img{
+     .nitImage  .nitsImg{
           width: 300px;
      }
 }

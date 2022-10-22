@@ -4,7 +4,19 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid')
 
+let userDataArray = [
+     {
+          first_name:"",
+          last_name:"",
+          email:"",
+          password:"",
+          contact:""
+     }
+]
 
+const getUser = () => {
+     res.status().send({status:200,msg:"success",data:userDataArray})
+}
 
 const login = async (req,res) => {
      try {
@@ -64,11 +76,13 @@ const register = async (req,res) => {
 
 let dataArray = [
      {
-          id:1,
-          weight:"25kg",
-          nature:"biodegradable",
-          location:"silcahr",
-          Percentage_co2_Emmission:"25%"
+          id:uuid.v4(),
+          nature:'nature',
+          weight:'weight',
+          old: 'old',
+          location: 'location',
+          image:'image',
+          description:'description',
      }
 ]
 
@@ -80,18 +94,21 @@ const GetTask = async (req, res) => {
 
 
 const createTask = async (req, res) => {
-     const {weight,nature,location} = req.body;
-     if(!(weight && location && nature)){
-          return res.status(400).send({status:400,msg:"all inputs are required"})
-     }
-     const id = uuid.v4();
+     const {weight,nature,old,location,image,description} = req.body.data;
+     console.log(req.body);
+     // if(!(weight && location && nature && old  && description)){
+     //      return res.status(400).send({status:400,msg:"all inputs are required"})
+     // }
      const newData = {
-          id:id,
+          id:uuid.v4(),
+          nature:nature,
           weight:weight,
-          nature:"afsgfs",
-          location:"csdgs",
-          Percentage_co2_Emmission:"25%"
+          old: old,
+          location:location,
+          image:image,
+          description:description,
      }
+     console.log(newData,".....aaaaaaaaa");
      dataArray.push(newData)
      res.status(201).send({status:201,data:dataArray})
 };
@@ -104,7 +121,7 @@ const deleteTask = async (req,res) => {
 }
 
 
-module.exports = { register, GetTask , login , createTask ,deleteTask };
+module.exports = {getUser, register, GetTask , login , createTask ,deleteTask };
 
 
 
